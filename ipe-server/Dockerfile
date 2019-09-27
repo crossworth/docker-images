@@ -5,16 +5,14 @@ RUN apk add git
 RUN cd /home && \
     git clone https://github.com/dimiro1/ipe.git
 
-RUN cd /home/ipe && \
-    go build -o ipe ./cmd && \
-    mv ./ipe /home/build/ipe
+RUN cd /home/ipe && go build -o ipe ./cmd
 
 FROM alpine:latest
 
 EXPOSE 8080
 
 COPY config.yml /home/config.yml
-COPY --from=build /home/build/ipe /home/ipe
+COPY --from=build /home/ipe /home/ipe
 
 RUN chmod +x /home/ipe
 

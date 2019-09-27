@@ -1,0 +1,18 @@
+host: ":8080"
+profiling: false
+ssl:
+  enabled: false
+  host: ":4343"
+  key_file: "key.pem"
+  cert_file: "cert.pem"
+apps:
+  - name: "${APP_NAME}"
+    enabled: true
+    only_ssl: false
+    key: "${APP_KEY}"
+    secret: "${APP_SECRET}"
+    app_id: "${APP_ID}"
+    user_events: true
+    webhooks:
+      enabled: false
+      url: "http:git init//127.0.0.1:5000/hook"

@@ -12,7 +12,7 @@ FROM alpine:latest
 EXPOSE 8080
 
 COPY config.yml /home/config.yml
-COPY --from=build /home/ipe /home/ipe
+COPY --from=build /home/ipe/ipe /home/ipe
 
 RUN chmod +x /home/ipe
 
